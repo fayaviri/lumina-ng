@@ -1,28 +1,104 @@
-# Angular specific
-/dist/
-/out-tsc/
-/tmp/
-/coverage/
-/e2e/test-output/
-/.angular/
-.angular/
+# ---------------------------------------------------------
+# .gitignore unificado para proyecto Angular / Node.js
+# ---------------------------------------------------------
 
-# Node modules and dependency files
-/node_modules/
-/package-lock.json
-/yarn.lock
+# Compiled output / Angular build
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/.angular/cache
 
-# Environment files
-/.env
-
-# Angular CLI and build artefacts
-/.angular-cli.json
-/.ng/
-
-# TypeScript cache
-*.tsbuildinfo
+# Node dependencies
+/node_modules
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime / process files
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Test / coverage output
+/coverage
+.nyc_output
+/test-results
+/playwright-report
+__screenshots__/
+__snapshots__/
+cypress/screenshots/
+cypress/videos/
+
+# Angular / TypeScript miscellaneous
+/typings
+.sass-cache/
+/connect.lock
+/libpeerconnection.log
+testem.log
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Local certificates / keys
+*.pem
+*.key
+*.crt
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+
+# OS generated files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Package manager caches
+.npm
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnpm-store/
+
+# Optional: descomenta si tu .npmrc contiene tokens privados
+# .npmrc
+
+# IMPORTANTE:
+# No ignores package-lock.json, yarn.lock o pnpm-lock.yaml.
+# En proyectos Angular conviene versionar el lockfile para mantener
+# instalaciones consistentes entre equipos y ambientes.

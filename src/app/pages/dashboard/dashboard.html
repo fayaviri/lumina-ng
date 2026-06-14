@@ -1,0 +1,109 @@
+<section class="page-shell">
+  <div class="page-header">
+    <div class="page-title-row">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Reusable Angular + PrimeNG Aura dashboard for Lumina NG.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="metric-grid">
+    @for (metric of metrics; track metric.label) {
+      <app-summary-card [data]="metric"></app-summary-card>
+    }
+  </section>
+
+  <section class="dashboard-grid two-columns">
+    <p-card styleClass="layout-card">
+      <ng-template #title>Template Updates</ng-template>
+      <ng-template #subtitle>Project guidelines</ng-template>
+
+      <div class="update-list">
+        @for (update of projectUpdates; track update.title) {
+          <article>
+            <h3>{{ update.title }}</h3>
+            <p>{{ update.description }}</p>
+            <span>{{ update.date }}</span>
+          </article>
+        }
+      </div>
+
+      <div class="card-actions">
+        <p-button
+          label="View Docs"
+          severity="secondary"
+          styleClass="w-full"
+        ></p-button>
+
+        <p-button
+          label="New Page"
+          styleClass="w-full"
+        ></p-button>
+      </div>
+    </p-card>
+
+    <p-card styleClass="layout-card">
+      <ng-template #title>Template Team</ng-template>
+
+      <div class="team-list">
+        @for (member of team; track member.name) {
+          <article class="team-row">
+            <div class="member-info">
+              <p-avatar
+                [label]="member.initials"
+                shape="circle"
+              ></p-avatar>
+
+              <div>
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.role }}</p>
+              </div>
+            </div>
+
+            <div class="member-status">
+              <span>Last Active</span>
+
+              <small [class.online]="member.online">
+                <i
+                  *ngIf="member.online"
+                  class="pi pi-circle-fill"
+                ></i>
+                {{ member.status }}
+              </small>
+            </div>
+          </article>
+        }
+      </div>
+    </p-card>
+  </section>
+
+  <p-card styleClass="layout-card">
+    <ng-template #title>Activity Log</ng-template>
+
+    <div class="activity-list">
+      @for (activity of activityLog; track activity.title) {
+        <article class="activity-row">
+          @if (activity.initials) {
+            <p-avatar
+              [label]="activity.initials"
+              shape="circle"
+            ></p-avatar>
+          } @else {
+            <div class="activity-icon">
+              <i [ngClass]="activity.icon"></i>
+            </div>
+          }
+
+          <div>
+            <h3>
+              {{ activity.title }}
+              <span>· {{ activity.time }}</span>
+            </h3>
+            <p>{{ activity.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </p-card>
+</section>

@@ -1,0 +1,23 @@
+<p-toolbar styleClass="topbar">
+  <ng-template #start>
+    <p-button icon="pi pi-bars" text severity="secondary" aria-label="Menú" (onClick)="layoutService.toggleSidebar()"></p-button>
+  </ng-template>
+
+  <ng-template #end>
+    <p-button
+      icon="pi pi-palette"
+      text
+      rounded
+      severity="secondary"
+      aria-label="Selector de colores"
+      (onClick)="configurator.toggle($event)"
+    ></p-button>
+    <p-button icon="pi pi-bell" text severity="secondary" aria-label="Notificaciones"></p-button>
+    <p-avatar
+      image="https://fqjltiegiezfetthbags.supabase.co/storage/v1/render/image/public/block.images/blocks/avatars/avatar-amyels.png"
+      shape="circle"
+    ></p-avatar>
+  </ng-template>
+</p-toolbar>
+
+<app-configurator #configurator></app-configurator>

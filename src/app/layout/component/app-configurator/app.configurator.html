@@ -1,0 +1,45 @@
+<p-popover #themeSelector styleClass="theme-popover">
+  <section class="theme-section">
+    <strong>Primary</strong>
+    <div class="theme-color-grid">
+      @for (item of primaryOptions; track item.name) {
+        <button
+          type="button"
+          class="theme-dot"
+          [class.is-selected]="selectedPrimary === item.name"
+          [style.background]="item.color"
+          [attr.aria-label]="item.name"
+          (click)="changePrimary(item.name)"
+        ></button>
+      }
+    </div>
+  </section>
+
+  <section class="theme-section">
+    <strong>Surface</strong>
+    <div class="theme-color-grid surface-grid">
+      @for (item of surfaceOptions; track item.name) {
+        <button
+          type="button"
+          class="theme-dot"
+          [class.is-selected]="selectedSurface === item.name"
+          [style.background]="item.color"
+          [attr.aria-label]="item.name"
+          (click)="changeSurface(item.name)"
+        ></button>
+      }
+    </div>
+  </section>
+
+  <section class="theme-section">
+    <strong>Presets</strong>
+    <p-selectButton
+      [options]="presetOptions"
+      [(ngModel)]="selectedPreset"
+      optionLabel="label"
+      optionValue="value"
+      [allowEmpty]="false"
+      (onChange)="changePreset($event.value)"
+    ></p-selectButton>
+  </section>
+</p-popover>

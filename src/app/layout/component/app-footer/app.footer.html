@@ -1,0 +1,23 @@
+<div class="sidebar-user">
+  @if (userExpanded) {
+    <ul class="menu-list user-list">
+      @for (item of userItems; track item.label) {
+        <li>
+          <a class="menu-link" [routerLink]="item.route" (click)="layoutService.closeMobileSidebar()">
+            <i class="menu-icon" [ngClass]="item.icon"></i>
+            <span>{{ item.label }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  }
+
+  <button type="button" class="user-trigger" (click)="userExpanded = !userExpanded">
+    <p-avatar
+      image="https://fqjltiegiezfetthbags.supabase.co/storage/v1/render/image/public/block.images/blocks/avatars/avatar-amyels.png"
+      shape="circle"
+    ></p-avatar>
+    <span>Amy Elsner</span>
+    <i class="pi" [ngClass]="userExpanded ? 'pi-angle-up' : 'pi-angle-down'"></i>
+  </button>
+</div>

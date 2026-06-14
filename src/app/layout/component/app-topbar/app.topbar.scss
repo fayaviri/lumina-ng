@@ -1,0 +1,52 @@
+:host {
+  display: block;
+}
+
+:host ::ng-deep .topbar {
+  min-height: 56px;
+  height: 56px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: var(--p-surface-200);
+  border-radius: 0;
+  background: var(--p-surface-0);
+  padding: 0 2rem;
+}
+
+:host ::ng-deep .topbar .p-toolbar-start,
+:host ::ng-deep .topbar .p-toolbar-end,
+:host ::ng-deep .topbar .p-toolbar-group-start,
+:host ::ng-deep .topbar .p-toolbar-group-end {
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .topbar .p-toolbar-end,
+:host ::ng-deep .topbar .p-toolbar-group-end {
+  gap: 2rem;
+}
+
+:host ::ng-deep .topbar .p-button .pi-bars {
+  font-size: 1.5rem;
+}
+
+:host ::ng-deep .topbar .p-avatar {
+  width: 2rem;
+  height: 2rem;
+}
+
+:host-context(.p-dark) ::ng-deep .topbar {
+  background: var(--p-surface-900);
+  border-color: var(--p-surface-700);
+}
+
+@media (max-width: 768px) {
+  :host ::ng-deep .topbar {
+    padding: 0 1rem;
+  }
+
+  :host ::ng-deep .topbar .p-toolbar-end,
+  :host ::ng-deep .topbar .p-toolbar-group-end {
+    gap: 0.75rem;
+  }
+}

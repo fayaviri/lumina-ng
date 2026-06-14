@@ -1,0 +1,477 @@
+@import "primeicons/primeicons.css";
+
+/* =========================================================
+   1. Base
+   ---------------------------------------------------------
+   Lumina NG keeps a moderate visual scale. Do not increase
+   these base sizes without checking inputs, text and mobile.
+   ========================================================= */
+html {
+  font-size: 14px;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: InterVariable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variation-settings: normal;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --selection-background: var(--p-surface-200);
+  --selection-text-color: var(--p-surface-950);
+}
+
+:root[class="p-dark"] {
+  --selection-background: var(--p-surface-700);
+  --selection-text-color: var(--p-surface-0);
+}
+
+::selection {
+  background-color: var(--selection-background);
+  color: var(--selection-text-color);
+}
+
+/* =========================================================
+   2. Typography helpers
+   ========================================================= */
+.page-title-row h1 {
+  margin: 0;
+  color: var(--p-surface-900);
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.page-title-row p {
+  margin: 0.5rem 0 0;
+  color: var(--p-surface-500);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.35rem;
+  color: var(--p-primary-color);
+  background: var(--p-primary-50);
+  font-size: 0.875em;
+}
+
+/* =========================================================
+   3. Page layout
+   ---------------------------------------------------------
+   Shared by dashboard, UIKit and future template pages.
+   Keep these utilities simple so AI tools can reuse them.
+   ========================================================= */
+.page-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.app-breadcrumb {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.page-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+/* =========================================================
+   4. Cards and metrics
+   ========================================================= */
+.metric-card,
+.layout-card {
+  border: 1px solid var(--p-surface-200);
+  border-radius: 1rem;
+  background: var(--p-surface-0);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.10), 0 1px 2px -1px rgb(0 0 0 / 0.10);
+}
+
+.metric-card .p-card-body,
+.layout-card .p-card-body {
+  padding: 1.5rem;
+}
+
+.metric-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.metric-label {
+  display: block;
+  color: var(--p-surface-700);
+  font-size: 0.875rem;
+  line-height: 1.42857;
+  font-weight: 400;
+}
+
+.metric-content strong {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--p-surface-900);
+  font-size: 1.5rem;
+  line-height: 1.33333;
+  font-weight: 600;
+}
+
+.metric-note {
+  margin: 1.5rem 0 0;
+  color: var(--p-surface-500);
+  font-size: 0.875rem;
+  line-height: 1.42857;
+}
+
+.metric-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.metric-icon i {
+  font-size: 1.25rem;
+}
+
+.metric-danger {
+  color: var(--p-red-500, #ef4444);
+  background: var(--p-red-100, #fee2e2);
+}
+
+.metric-success {
+  color: var(--p-green-600, #16a34a);
+  background: var(--p-green-100, #dcfce7);
+}
+
+.metric-info {
+  color: var(--p-blue-600, #2563eb);
+  background: var(--p-blue-100, #dbeafe);
+}
+
+.metric-primary {
+  color: var(--p-primary-color);
+  background: var(--p-primary-50);
+}
+
+/* =========================================================
+   5. Lists used by dashboard/demo pages
+   ========================================================= */
+.update-list,
+.team-list,
+.activity-list,
+.message-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.update-list article + article {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--p-surface-200);
+}
+
+.update-list h3,
+.team-row h3,
+.activity-row h3 {
+  margin: 0;
+  color: var(--p-surface-900);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.update-list p,
+.team-row p,
+.activity-row p {
+  margin: 0.25rem 0 0;
+  color: var(--p-surface-500);
+  font-size: 0.875rem;
+  line-height: 1.42857;
+}
+
+.update-list span,
+.activity-row h3 span {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--p-surface-500);
+  font-size: 0.875rem;
+  line-height: 1.42857;
+  font-weight: 400;
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.member-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.member-info .p-avatar {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.member-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  color: var(--p-surface-500);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.member-status span {
+  color: var(--p-surface-900);
+  font-weight: 500;
+}
+
+.member-status small {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--p-surface-500);
+  font-size: 0.75rem;
+}
+
+.member-status small.online {
+  color: var(--p-primary-color);
+}
+
+.member-status i {
+  font-size: 0.5rem;
+}
+
+.activity-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.activity-icon {
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--p-surface-200);
+  border-radius: 9999px;
+  color: var(--p-surface-500);
+  background: var(--p-surface-0);
+}
+
+/* =========================================================
+   6. Forms and actions
+   ========================================================= */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-grid.one-column {
+  grid-template-columns: 1fr;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  color: var(--p-surface-700);
+  font-size: 0.875rem;
+  line-height: 1.42857;
+  font-weight: 500;
+}
+
+.field input,
+.field p-select,
+.field p-datepicker {
+  width: 100%;
+}
+
+.search-field input {
+  min-width: 17rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button-row.mt {
+  margin-top: 1.5rem;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.inner-toolbar {
+  padding: 0 0 1rem 0;
+  border: 0;
+  background: transparent;
+}
+
+/* =========================================================
+   7. Small utilities
+   ========================================================= */
+.text-right {
+  text-align: right;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* =========================================================
+   8. Dark mode adjustments
+   ========================================================= */
+.p-dark .metric-card,
+.p-dark .layout-card,
+.p-dark .activity-icon {
+  background: var(--p-surface-900);
+  border-color: var(--p-surface-700);
+}
+
+.p-dark .update-list article + article {
+  border-color: var(--p-surface-700);
+}
+
+/* =========================================================
+   9. Responsive rules
+   ---------------------------------------------------------
+   Every new template page should be checked on desktop,
+   tablet and mobile before being contributed.
+   ========================================================= */
+@media (max-width: 1180px) {
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-title-row {
+    flex-direction: column;
+  }
+
+  .search-field,
+  .search-field input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .metric-grid,
+  .form-grid,
+  .card-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .team-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .member-status {
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   10. PrimeNG route render fix
+   ---------------------------------------------------------
+   When a lazy route is mounted, Angular and PrimeNG may apply
+   classes/tokens in the same render cycle. This temporary class
+   avoids visible gray-to-final-color transitions.
+   ========================================================= */
+html.app-route-rendering *,
+html.app-route-rendering *::before,
+html.app-route-rendering *::after {
+  transition: none !important;
+  animation-duration: 0.001ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+.p-button,
+.p-inputtext,
+.p-select,
+.p-datepicker,
+.p-card,
+.p-panel,
+.p-accordion,
+.p-datatable,
+.p-tree,
+.p-menu,
+.p-message,
+.p-toast,
+.p-tag,
+.p-badge,
+.p-avatar,
+.p-fileupload,
+.p-timeline,
+.p-dialog {
+  transition-property: box-shadow, opacity, transform !important;
+}

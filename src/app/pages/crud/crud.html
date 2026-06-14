@@ -1,0 +1,70 @@
+<p-toast></p-toast>
+
+<section class="page-shell">
+  <p-card styleClass="layout-card">
+    <ng-template #title>CRUD</ng-template>
+    <ng-template #subtitle>Generic CRUD demo ready to adapt to any domain.</ng-template>
+
+    <p-toolbar styleClass="inner-toolbar">
+      <ng-template #start>
+        <p-button label="New" icon="pi pi-plus" (onClick)="newRecord()"></p-button>
+      </ng-template>
+    </p-toolbar>
+
+    <p-table [value]="records" responsiveLayout="scroll">
+      <ng-template #header>
+        <tr>
+          <th>Name</th>
+          <th>Owner</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+
+      <ng-template #body let-row>
+        <tr>
+          <td>{{ row.name }}</td>
+          <td>{{ row.owner }}</td>
+          <td>{{ row.category }}</td>
+          <td>
+            <p-tag [value]="row.status" [severity]="statusSeverity(row.status)"></p-tag>
+          </td>
+          <td class="text-right">
+            <p-button icon="pi pi-pencil" text rounded (onClick)="editRecord(row)"></p-button>
+            <p-button icon="pi pi-trash" text rounded severity="danger" (onClick)="deleteRecord(row)"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</section>
+
+<p-dialog
+  header="Demo Record"
+  [(visible)]="crudDialog"
+  [modal]="true"
+  [style]="{ width: 'min(92vw, 30rem)' }"
+>
+  <div class="form-grid one-column">
+    <div class="field">
+      <label>Name</label>
+      <input pInputText [(ngModel)]="selectedRecord.name" />
+    </div>
+
+    <div class="field">
+      <label>Owner</label>
+      <input pInputText [(ngModel)]="selectedRecord.owner" />
+    </div>
+
+    <div class="field">
+      <label>Category</label>
+      <input pInputText [(ngModel)]="selectedRecord.category" />
+    </div>
+  </div>
+
+  <ng-template #footer>
+    <p-button label="Cancel" severity="secondary" (onClick)="crudDialog = false"></p-button>
+    <p-button label="Save" icon="pi pi-check" (onClick)="saveRecord()"></p-button>
+  </ng-template>
+</p-dialog>

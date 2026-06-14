@@ -1,0 +1,22 @@
+<nav class="main-menu">
+  @for (section of layoutService.menu(); track section.label; let last = $last) {
+    <section class="menu-section">
+      <button type="button" class="menu-section-header" (click)="layoutService.toggleSection(section.label)">
+        <span>{{ section.label }}</span>
+        <i class="pi" [ngClass]="section.expanded ? 'pi-angle-down' : 'pi-angle-right'"></i>
+      </button>
+
+      @if (section.expanded) {
+        <ul class="menu-list">
+          @for (item of section.items; track item.label) {
+            <app-menuitem [item]="item"></app-menuitem>
+          }
+        </ul>
+      }
+    </section>
+
+    @if (!last) {
+      <div class="menu-divider"></div>
+    }
+  }
+</nav>

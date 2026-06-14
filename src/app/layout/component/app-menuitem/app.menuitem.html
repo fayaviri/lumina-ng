@@ -1,0 +1,23 @@
+<li>
+  <a
+    class="menu-link"
+    [routerLink]="item.route"
+    routerLinkActive="is-active"
+    [routerLinkActiveOptions]="{ exact: item.routerLinkExact ?? false }"
+    (click)="layoutService.closeMobileSidebar()"
+  >
+    @if (item.iconBox) {
+      <span class="menu-icon-box" [ngClass]="'tone-' + item.iconBox">
+        <i [ngClass]="item.icon"></i>
+      </span>
+    } @else {
+      <i class="menu-icon" [ngClass]="item.icon"></i>
+    }
+
+    <span>{{ item.label }}</span>
+
+    @if (item.badge) {
+      <p-badge class="menu-badge" [value]="item.badge" [severity]="item.badgeSeverity ?? 'contrast'"></p-badge>
+    }
+  </a>
+</li>

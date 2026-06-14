@@ -1,0 +1,20 @@
+<div class="layout-shell" [class.mobile-sidebar-active]="layoutService.mobileSidebarVisible()">
+  <app-sidebar [collapsed]="!layoutService.isMobile() && !layoutService.sidebarVisible()"></app-sidebar>
+
+  @if (layoutService.mobileSidebarVisible()) {
+    <button
+      type="button"
+      class="layout-mask"
+      aria-label="Cerrar menú lateral"
+      (click)="layoutService.closeMobileSidebar()"
+    ></button>
+  }
+
+  <main class="layout-main">
+    <app-topbar></app-topbar>
+
+    <section class="content-wrap">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

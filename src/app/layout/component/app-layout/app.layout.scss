@@ -1,0 +1,63 @@
+:host {
+  --layout-sidebar-width: 280px;
+  --layout-radius-lg: 0.5rem;
+  --layout-radius-md: 0.375rem;
+  --layout-transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+  display: block;
+  height: 100dvh;
+  color: var(--p-surface-900);
+  background: var(--p-surface-50);
+  overflow: hidden;
+}
+
+.layout-shell {
+  position: relative;
+  display: flex;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--p-surface-50);
+}
+
+.layout-main {
+  min-width: 0;
+  flex: 1 1 auto;
+  height: 100dvh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--p-surface-50);
+}
+
+.content-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 2rem;
+  background: var(--p-surface-50);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.layout-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  border: 0;
+  padding: 0;
+  background: rgb(15 23 42 / 0.45);
+  cursor: pointer;
+}
+
+:host-context(.p-dark) .layout-shell,
+:host-context(.p-dark) .layout-main,
+:host-context(.p-dark) .content-wrap {
+  background: var(--p-surface-950);
+}
+
+@media (max-width: 768px) {
+  .content-wrap {
+    padding: 1rem;
+  }
+}
