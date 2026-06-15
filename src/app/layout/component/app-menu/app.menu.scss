@@ -31,9 +31,9 @@
   color: var(--p-surface-900);
   cursor: pointer;
   font: inherit;
-  font-size: 1rem;
-  line-height: 1.25;
-  font-weight: 600;
+  font-size: var(--lumina-text-base);
+  line-height: var(--lumina-leading-tight);
+  font-weight: var(--lumina-font-semibold);
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
   transition-duration: var(--layout-transition);
 }
@@ -41,7 +41,7 @@
 .menu-section-header i {
   margin-left: auto;
   color: var(--p-surface-500);
-  font-size: 1rem;
+  font-size: var(--lumina-text-base);
   line-height: 1;
 }
 

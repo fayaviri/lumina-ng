@@ -49,9 +49,9 @@
 
 .brand-name {
   color: var(--p-surface-900);
-  font-size: 1.125rem;
-  line-height: 1.25;
-  font-weight: 600;
+  font-size: var(--lumina-text-lg);
+  line-height: var(--lumina-leading-tight);
+  font-weight: var(--lumina-font-semibold);
 }
 
 :host-context(.p-dark) {

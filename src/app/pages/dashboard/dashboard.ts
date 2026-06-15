@@ -47,28 +47,32 @@ export class Dashboard {
       label: 'Active Sessions',
       value: '24',
       icon: 'pi pi-bolt',
-      note: '12 new since last review',
+      noteStrong: '12',
+      noteText: 'new since last review',
       tone: 'danger'
     },
     {
       label: 'New Records',
       value: '48',
       icon: 'pi pi-plus-circle',
-      note: '25 created this week',
+      noteStrong: '25',
+      noteText: 'created this week',
       tone: 'success'
     },
     {
       label: 'Completed Tasks',
       value: '15,320',
       icon: 'pi pi-check-circle',
-      note: '2,985 updated records',
+      noteStrong: '2,985',
+      noteText: 'updated records',
       tone: 'info'
     },
     {
       label: 'Team Members',
       value: '2,566',
       icon: 'pi pi-users',
-      note: '320 active today',
+      noteStrong: '320',
+      noteText: 'active today',
       tone: 'primary'
     }
   ];

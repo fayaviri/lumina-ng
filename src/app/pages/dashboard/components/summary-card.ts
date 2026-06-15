@@ -6,7 +6,9 @@ export interface SummaryCardData {
   label: string;
   value: string;
   icon: string;
-  note: string;
+  note?: string;
+  noteStrong?: string;
+  noteText?: string;
   tone: 'danger' | 'success' | 'info' | 'primary';
 }
 
@@ -25,7 +27,15 @@ export interface SummaryCardData {
           <i [ngClass]="data.icon"></i>
         </div>
       </div>
-      <p class="metric-note">{{ data.note }}</p>
+
+      <p class="metric-note">
+        @if (data.noteStrong) {
+          <b>{{ data.noteStrong }}</b>
+          <span> {{ data.noteText || data.note }}</span>
+        } @else {
+          <span>{{ data.noteText || data.note }}</span>
+        }
+      </p>
     </p-card>
   `
 })
